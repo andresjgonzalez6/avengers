@@ -31,24 +31,19 @@ let characters = [
     }];
 
 app.get("/", function(req,res){
-    res.sendFile(path.join(_dirname, "view.html"));
+    res.sendFile(path.join(__dirname, "view.html"));
 });
 
 app.get("/add", function (req, res){
-    res.sendFile(path.join(_dirname, "add.html"));
+    res.sendFile(path.join(__dirname, "add.html"));
+});
+
+app.get("/api/v1/characters", function (req, res) {
+    return res.json(characters);
 });
 
 app.get("/", function (req, res) {
     res.send("Welcome to Avengers page!");
-});
-
-app.get("/", function(req, res) {
-    res.sendFile("view.html");
-})
-
-app.get("/api/v1/characters", function (req, res) {
-    return res.json(characters);
-
 });
 
 app.get("/api/v1/characters/:characterId", function (req, res) {
